@@ -6,11 +6,9 @@ import Layout from "./components/layout-component.tsx";
 function App() {
 
     return (
+        <Layout/>
 
-        <>
-            <Layout> </Layout>
 
-        </>
     );
 }
 
