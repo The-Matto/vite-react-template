@@ -1,25 +1,41 @@
 ﻿import NavBar from "./navbar-component.jsx.tsx";
-import {ReactNode} from "react";
 import {Route, Routes} from "react-router";
+import PageContent from "./page-content.tsx";
 
 
-export default function Layout({children}: { children: ReactNode }) {
+export default function Layout() {
     return (
         <>
             <NavBar/>
+
             <Routes>
-                <Route path="/" element={<p>Home</p>}/>
+                <Route path="/" element={
+                    <p> Home page</p>
+                }/>
 
+                <Route path="/projects" element={
+                    <PageContent>
+                        <p>Projects</p>
+                    </PageContent>
+                }/>
 
-                <Route path="/projects" element={<p>Projects</p>}/>
-                <Route path="/about" element={<p>About</p>}/>
-                <Route path="/contact" element={<p>Contact Me</p>}/>
+                <Route path="/about" element={
+                    <PageContent>
+                        <p>About</p>
+                    </PageContent>
+                }/>
 
+                <Route path="/contact" element={
+                    <PageContent>
+                        <p> Contact Me</p>
+                    </PageContent>
+                }/>
 
-                <Route path="*" element={<p>Not Found</p>}/>
+                <Route path="*" element={
+                    <p>Not Found</p>
+                }/>
+
             </Routes>
-            {children}
-
         </>
     )
 }
