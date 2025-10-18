@@ -1,6 +1,7 @@
 ﻿import NavBar from "./navbar-component.jsx.tsx";
 import {Route, Routes} from "react-router";
 import PageContent from "./page-content.tsx";
+import Footer from "./footer-component.tsx";
 
 
 export default function Layout() {
@@ -10,7 +11,13 @@ export default function Layout() {
 
             <Routes>
                 <Route path="/" element={
-                    <p> Home page</p>
+                    <>
+                        <div
+                            className="bg-gradient-to-br from-blue-950 via-blue-800 to-purple-950 flex-grow">
+                            <div className="min-h-screen mx-auto max-w-6xl px-4"></div>
+                        </div>
+                        <Footer/>
+                    </>
                 }/>
 
                 <Route path="/projects" element={

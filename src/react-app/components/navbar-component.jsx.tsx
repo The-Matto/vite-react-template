@@ -15,6 +15,10 @@ export default function NavBar() {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+    const closeMobileMenu = () => {
+        setMobileMenuOpen(false);
+    };
+
     return (
         <header className="bg-gray-900">
             <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
@@ -54,13 +58,13 @@ export default function NavBar() {
                 <DialogPanel
                     className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
                     <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <Link to="/" className="-m-1.5 p-1.5">
                             <img
                                 alt=""
                                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                                 className="h-8 w-auto"
                             />
-                        </a>
+                        </Link>
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
@@ -73,9 +77,12 @@ export default function NavBar() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-white/10 block">
                             <div className="space-y-2 py-6 block">
-                                <NavLink path={"/projects"} renderAsBlock={true} text={"Projects"}/>
-                                <NavLink path={"/about"} renderAsBlock={true} text={"About me"}/>
-                                <NavLink path={"/contact"} renderAsBlock={true} text={"Contact Me"}/>
+                                <NavLink path={"/projects"} onClickFunc={closeMobileMenu} renderAsBlock={true}
+                                         text={"Projects"}/>
+                                <NavLink path={"/about"} onClickFunc={closeMobileMenu} renderAsBlock={true}
+                                         text={"About me"}/>
+                                <NavLink path={"/contact"} onClickFunc={closeMobileMenu} renderAsBlock={true}
+                                         text={"Contact Me"}/>
 
                             </div>
                         </div>
