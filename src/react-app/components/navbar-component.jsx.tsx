@@ -20,10 +20,12 @@ export default function NavBar() {
     };
 
     return (
-        <header className="bg-gray-900">
+        <header className="">
+
             <nav aria-label="Global"
-                 className="mx-auto flex  items-center justify-between p-6 w-full lg:px-8 fixed top-0 z-10 bg-gray-900">
+                 className="border-b border-white/30 mx-auto flex  items-center justify-between p-4 w-full lg:px-8 fixed top-0 z-10">
                 <div className="flex lg:flex-1">
+                    <div className="absolute inset-0 bg-gray-900  opacity-50 -z-10"></div>
                     <Link to="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Matt Heritage</span>
                         <img
@@ -34,7 +36,7 @@ export default function NavBar() {
                     </Link>
                 </div>
 
-                <div className="hidden space-x-6 lg:block text-white bg-gray-900">
+                <div className="hidden space-x-6 lg:block text-white">
                     <NavLink path={"/projects"} text={"Projects"}/>
                     <NavLink path={"/about"} text={"About Me"}/>
                     <NavLink path={"/contact"} text={"Contact Me"}/>
