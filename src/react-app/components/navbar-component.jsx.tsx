@@ -21,12 +21,13 @@ export default function NavBar() {
 
     return (
         <header className="bg-gray-900">
-            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <nav aria-label="Global"
+                 className="mx-auto flex  items-center justify-between p-6 w-full lg:px-8 fixed top-0 z-10 bg-gray-900">
                 <div className="flex lg:flex-1">
                     <Link to="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Matt Heritage</span>
                         <img
-                            alt=""
+                            alt="logo"
                             src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                             className="h-8 w-auto"
                         />
