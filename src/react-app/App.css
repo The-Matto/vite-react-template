@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@keyframes slide-up-fade {
+    0% {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+
+
+.animation-slide-up-subtext {
+    opacity: 0;
+    animation: slide-up-fade 1s ease-out 1s forwards;
+}
+
+.animation-slide-up-title {
+    opacity: 0;
+    animation: slide-up-fade 1s ease-out 0s forwards;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
