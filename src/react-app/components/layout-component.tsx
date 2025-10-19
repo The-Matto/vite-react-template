@@ -1,10 +1,11 @@
-﻿import NavBar from "./navbar-component.jsx.tsx";
-import {Route, Routes} from "react-router";
+﻿import {Route, Routes} from "react-router";
+
+import "../App.css";
+
+import NavBar from "./navbar-component.jsx.tsx";
 import PageContent from "./page-content.tsx";
 import Footer from "./footer-component.tsx";
-import GradientText from "./text-components/gradient-text-component.tsx";
-import BubbleText from "./text-components/bubble-text-component.tsx";
-import "../App.css";
+import LandingPageHero from "./landing-page-hero-component.tsx";
 
 export default function Layout() {
     return (
@@ -14,27 +15,10 @@ export default function Layout() {
             <Routes>
                 <Route path="/" element={
                     <>
-                        {/* TODO - Move this to its own component*/}
-                        <div
-                            className="bg-gradient-to-r from-gray-950 to-purple-950 w-full   px-4 ">
-
-                            <div className="items-start flex  justify-center min-h-screen flex-col">
-                                <GradientText classNames={"animation-slide-up-title text-6xl justify-start"}
-                                              text="Matt Heritage"/>
-                                <div className="flex pl-20">
-                                    <p className={"text-white animation-slide-up-subtext text-1xl animate-ping"}>Unreal
-                                        Engine
-                                        <BubbleText bgClassNames={"bg-purple-700"} text={"C++"}/>
-                                        programmer turned
-                                        <BubbleText bgClassNames={"bg-orange-700"} text={"Backend"}/>
-                                        /
-                                        <BubbleText bgClassNames={"bg-orange-700"} text={"Full-Stack"}/>
-                                        developer
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <LandingPageHero/>
+                        <div className={"h-40 w-full bg-black"}/>
+                        <div id={"about-me"} className={"h-500 w-full bg-gradient-to-b from-black to-purple-950"}/>
+                        
                         <Footer/>
                     </>
                 }/>

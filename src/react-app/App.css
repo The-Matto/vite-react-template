@@ -12,16 +12,31 @@
     }
 }
 
-
-.animation-slide-up-subtext {
-    opacity: 0;
-    animation: slide-up-fade 1s ease-out 1s forwards;
+@keyframes bounce-loop {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
 }
 
 .animation-slide-up-title {
     opacity: 0;
     animation: slide-up-fade 1s ease-out 0s forwards;
 }
+
+.animation-slide-up-subtext {
+    opacity: 0;
+    animation: slide-up-fade 1s ease-out 1s forwards;
+}
+
+.animation-slide-up-chevron {
+    opacity: 0;
+    animation: slide-up-fade 1s ease-out 1.5s forwards,
+    bounce-loop 2s ease-in-out 2.5s infinite;
+}
+
 
 @tailwind base;
 @tailwind components;

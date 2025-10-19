@@ -10,7 +10,7 @@ export default function GradientText({text, classNames}: { text: string, classNa
     }
 
 
-    console.log(cssClasses)
+    //console.log(cssClasses)
     return (
         <p className={cssClasses}>
             {text}
