@@ -6,6 +6,7 @@ import NavBar from "./navbar-component.jsx.tsx";
 import PageContent from "./page-content.tsx";
 import Footer from "./footer-component.tsx";
 import LandingPageHero from "./landing-page-hero-component.tsx";
+import Projects from "./projects-component.tsx";
 
 export default function Layout() {
     return (
@@ -16,9 +17,11 @@ export default function Layout() {
                 <Route path="/" element={
                     <>
                         <LandingPageHero/>
-                        <div className={"h-40 w-full bg-black"}/>
+                        <div className={"h-40 w-full bg-black"}>
+                            <Projects/></div>
                         <div id={"about-me"} className={"h-500 w-full bg-gradient-to-b from-black to-purple-950"}/>
-                        
+                        {/*<Projects/>*/}
+
                         <Footer/>
                     </>
                 }/>

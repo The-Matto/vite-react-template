@@ -16,7 +16,7 @@ export default function LandingPageHero() {
                     <p className={"text-white animation-slide-up-subtext text-1xl animate-ping"}>Unreal
                         Engine
                         <BubbleText bgClassNames={"bg-purple-700"} text={"C++"}/>
-                        programmer turned
+                        programmer and
                         <BubbleText bgClassNames={"bg-orange-700"} text={"Backend"}/>
                         /
                         <BubbleText bgClassNames={"bg-orange-700"} text={"Full-Stack"}/>
