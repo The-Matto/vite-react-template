@@ -64,6 +64,18 @@
     bounce-loop 2s ease-in-out 3.3s infinite;
 }
 
+/* Faint diagonal texture on generated project covers, so a project with no
+   screenshot yet reads as an intentional placeholder rather than a broken image. */
+.procedural-cover {
+    background-image: repeating-linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.035) 0px,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 1px,
+        transparent 8px
+    );
+}
+
 
 @tailwind base;
 @tailwind components;
