@@ -1,54 +1,28 @@
-﻿import {Route, Routes} from "react-router";
-
 import "../App.css";
 
 import NavBar from "./navbar-component.jsx.tsx";
-import PageContent from "./page-content.tsx";
 import Footer from "./footer-component.tsx";
 import LandingPageHero from "./landing-page-hero-component.tsx";
 import Projects from "./projects-component.tsx";
+import AboutMe from "./about-me-component.tsx";
+import Contact from "./contact-component.tsx";
 
 export default function Layout() {
     return (
         <>
             <NavBar/>
 
-            <Routes>
-                <Route path="/" element={
-                    <>
-                        <LandingPageHero/>
-                        <div className={"h-40 w-full bg-black"}>
-                            <Projects/></div>
-                        <div id={"about-me"} className={"h-500 w-full bg-gradient-to-b from-black to-purple-950"}/>
-                        {/*<Projects/>*/}
+            <LandingPageHero/>
 
-                        <Footer/>
-                    </>
-                }/>
+            <section id="projects" className="scroll-mt-24 w-full bg-black px-4 py-16">
+                <Projects/>
+            </section>
 
-                <Route path="/projects" element={
-                    <PageContent>
-                        <p>Projects</p>
-                    </PageContent>
-                }/>
+            <AboutMe/>
 
-                <Route path="/about" element={
-                    <PageContent>
-                        <p>About</p>
-                    </PageContent>
-                }/>
+            <Contact/>
 
-                <Route path="/contact" element={
-                    <PageContent>
-                        <p> Contact Me</p>
-                    </PageContent>
-                }/>
-
-                <Route path="*" element={
-                    <p>Not Found</p>
-                }/>
-
-            </Routes>
+            <Footer/>
         </>
     )
 }
