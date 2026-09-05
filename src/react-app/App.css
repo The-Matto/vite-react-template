@@ -21,20 +21,47 @@
     }
 }
 
-.animation-slide-up-title {
+@keyframes float-drift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(16px, -22px) rotate(12deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+/* Each hero-shape sets its own animation-duration/-delay inline for organic,
+   non-synchronized drifting. */
+.hero-shape {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-name: float-drift;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.animation-slide-up-kicker {
     opacity: 0;
     animation: slide-up-fade 1s ease-out 0s forwards;
 }
 
+.animation-slide-up-title {
+    opacity: 0;
+    animation: slide-up-fade 1s ease-out 0.5s forwards;
+}
+
 .animation-slide-up-subtext {
     opacity: 0;
-    animation: slide-up-fade 1s ease-out 1s forwards;
+    animation: slide-up-fade 1s ease-out 1.3s forwards;
 }
 
 .animation-slide-up-chevron {
     opacity: 0;
-    animation: slide-up-fade 1s ease-out 2s forwards,
-    bounce-loop 2s ease-in-out 3s infinite;
+    animation: slide-up-fade 1s ease-out 2.3s forwards,
+    bounce-loop 2s ease-in-out 3.3s infinite;
 }
 
 
