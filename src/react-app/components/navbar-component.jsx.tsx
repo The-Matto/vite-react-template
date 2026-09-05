@@ -5,11 +5,13 @@ import {
     DialogPanel,
 } from '@headlessui/react'
 import {
+    ArrowDownTrayIcon,
     Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import NavLink from "./nav-clickable-link.tsx";
-import {Link} from "react-router";
+import SocialLinksNav from "./social-links-nav-component.tsx";
+import {CV_DOWNLOAD_FILENAME, CV_PATH} from "../data/cv-data.ts";
 
 export default function NavBar() {
 
@@ -36,10 +38,14 @@ export default function NavBar() {
                     </a>
                 </div>
 
-                <div className="hidden space-x-6 lg:block text-white">
+                <div className="hidden lg:flex lg:items-center lg:gap-6 text-white">
                     <NavLink path={"/#projects"} text={"Projects"}/>
                     <NavLink path={"/#about-me"} text={"About Me"}/>
                     <NavLink path={"/#contact"} text={"Contact Me"}/>
+                    <div className="flex items-center gap-3 pl-3 border-l border-white/15">
+                        <span className="font-mono text-xs text-orange-400/80">{"// find me"}</span>
+                        <SocialLinksNav/>
+                    </div>
                 </div>
 
                 <div className="flex lg:hidden">
@@ -53,7 +59,13 @@ export default function NavBar() {
                     </button>
                 </div>
 
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end"/>
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <a href={CV_PATH} download={CV_DOWNLOAD_FILENAME}
+                       className="inline-flex items-center gap-1.5 rounded-md border border-orange-500/60 px-3 py-1.5 text-sm font-mono text-orange-400 hover:bg-orange-500/10 transition-colors duration-150">
+                        <ArrowDownTrayIcon aria-hidden="true" className="size-4"/>
+                        CV
+                    </a>
+                </div>
 
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -61,13 +73,13 @@ export default function NavBar() {
                 <DialogPanel
                     className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
                     <div className="flex items-center justify-between">
-                        <Link to="/" className="-m-1.5 p-1.5">
+                        <a href="/" className="-m-1.5 p-1.5">
                             <img
                                 alt=""
                                 src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
                                 className="h-8 w-auto"
                             />
-                        </Link>
+                        </a>
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
@@ -87,6 +99,17 @@ export default function NavBar() {
                                 <NavLink path={"/#contact"} onClickFunc={closeMobileMenu} renderAsBlock={true}
                                          text={"Contact Me"}/>
 
+                            </div>
+                            <div className="py-6">
+                                <a href={CV_PATH} download={CV_DOWNLOAD_FILENAME}
+                                   className="inline-flex items-center gap-1.5 rounded-md border border-orange-500/60 px-3 py-1.5 text-sm font-mono text-orange-400 hover:bg-orange-500/10 transition-colors duration-150">
+                                    <ArrowDownTrayIcon aria-hidden="true" className="size-4"/>
+                                    Download CV
+                                </a>
+                            </div>
+                            <div className="py-6 flex flex-col gap-3">
+                                <span className="font-mono text-xs text-orange-400/80">{"// find me"}</span>
+                                <SocialLinksNav/>
                             </div>
                         </div>
                     </div>
