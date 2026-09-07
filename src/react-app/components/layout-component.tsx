@@ -14,9 +14,7 @@ export default function Layout() {
 
             <LandingPageHero/>
 
-            <section id="projects" className="scroll-mt-24 w-full bg-black px-4 py-16">
-                <Projects/>
-            </section>
+            <Projects/>
 
             <AboutMe/>
 

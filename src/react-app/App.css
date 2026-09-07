@@ -69,6 +69,26 @@
     animation: slide-up-fade 1s ease-out 2.1s forwards;
 }
 
+@keyframes heading-flash {
+    0% {
+        filter: drop-shadow(0 0 0 rgba(249, 115, 22, 0));
+    }
+    25% {
+        filter: drop-shadow(0 0 16px rgba(249, 115, 22, 0.85));
+    }
+    100% {
+        filter: drop-shadow(0 0 0 rgba(249, 115, 22, 0));
+    }
+}
+
+/* :target matches the section whose id is in the URL hash, so this fires
+   automatically on nav clicks with no JS or scroll-tracking needed. */
+#projects:target .section-heading,
+#about-me:target .section-heading,
+#contact:target .section-heading {
+    animation: heading-flash 1s ease-out;
+}
+
 /* Faint diagonal texture on generated project covers, so a project with no
    screenshot yet reads as an intentional placeholder rather than a broken image. */
 .procedural-cover {

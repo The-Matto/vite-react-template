@@ -7,7 +7,7 @@ export default function TagFilterComponent({tags, activeTags, onToggle, onClear}
     onClear: () => void,
 }) {
     return (
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
             {tags.map(tag => {
                 const isActive = activeTags.has(tag);
                 return (

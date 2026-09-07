@@ -70,7 +70,7 @@ export default function ProjectSummaryComponent({project}: { project: Project })
             <br/>
             <h2 className={"text-xl"}>{project.title}</h2>
             <br/>
-            <p>{project.description}</p>
+            <p className="line-clamp-3">{project.description}</p>
             {project.githubLink && (
                 <a className="inline-block mt-3 font-mono text-orange-400 hover:text-orange-300"
                    href={project.githubLink} target="_blank" rel="noreferrer">GitHub →</a>
