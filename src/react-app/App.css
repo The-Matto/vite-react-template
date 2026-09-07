@@ -64,6 +64,11 @@
     bounce-loop 2s ease-in-out 3.3s infinite;
 }
 
+.animation-slide-up-status {
+    opacity: 0;
+    animation: slide-up-fade 1s ease-out 2.1s forwards;
+}
+
 /* Faint diagonal texture on generated project covers, so a project with no
    screenshot yet reads as an intentional placeholder rather than a broken image. */
 .procedural-cover {
