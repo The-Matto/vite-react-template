@@ -32,7 +32,7 @@ export default function NavBar() {
                         <span className="sr-only">Matt Heritage</span>
                         <img
                             alt="logo"
-                            src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                            src="/MattLogo.png"
                             className="h-8 w-auto"
                         />
                     </a>
@@ -76,7 +76,7 @@ export default function NavBar() {
                         <a href="/" className="-m-1.5 p-1.5">
                             <img
                                 alt=""
-                                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                                src="/MattLogo.png"
                                 className="h-8 w-auto"
                             />
                         </a>
