@@ -65,7 +65,7 @@ export const projects: Project[] = [
     {
         id: "project-fullstack-app",
         title: "Full-Stack Web App",
-        description: "A full web app I built end to end, with a React frontend, a typed API, and a database-backed service layer.",
+        description: "A full web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a database-backed service layer.",
         tags: [ProjectTag.React, ProjectTag.TypeScript, ProjectTag.Fullstack, ProjectTag.Backend],
     },
 ];
