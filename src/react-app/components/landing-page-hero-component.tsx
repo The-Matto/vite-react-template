@@ -38,8 +38,14 @@ export default function LandingPageHero() {
                     </span>
                     Looking for opportunities
                 </div>
-                <ChevronDownIcon
-                    className="animate-bounce hover:text-orange-500 animation-slide-up-chevron size-16 text-orange-50"/>
+                <button
+                    type="button"
+                    onClick={() => window.scrollBy({top: window.innerHeight * 0.85, behavior: "smooth"})}
+                    aria-label="Scroll down"
+                    className="cursor-pointer rounded-full text-orange-50 hover:text-orange-500 transition-colors duration-150">
+                    <ChevronDownIcon
+                        className="animate-bounce animation-slide-up-chevron size-16"/>
+                </button>
             </div>
 
             {/*Fade to black*/}
