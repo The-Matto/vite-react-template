@@ -1,5 +1,5 @@
 export enum ProjectTag {
-    Unity = "Unity",
+    BrowserExtension = "BrowserExtension",
     UnrealEngine = "Unreal Engine",
     Cpp = "C++",
     GameDev = "Game Dev",
@@ -10,10 +10,12 @@ export enum ProjectTag {
     Backend = "Backend",
     Frontend = "Frontend",
     Fullstack = "Fullstack",
+    Redis = "Redis",
+    Postgres = "Postgres",
 }
 
 export const projectTagStyle: Record<ProjectTag, string> = {
-    [ProjectTag.Unity]: "bg-slate-700",
+    [ProjectTag.BrowserExtension]: "bg-slate-700",
     [ProjectTag.UnrealEngine]: "bg-indigo-800",
     [ProjectTag.Cpp]: "bg-blue-700",
     [ProjectTag.GameDev]: "bg-fuchsia-800",
@@ -24,49 +26,93 @@ export const projectTagStyle: Record<ProjectTag, string> = {
     [ProjectTag.Backend]: "bg-green-700",
     [ProjectTag.Frontend]: "bg-red-600",
     [ProjectTag.Fullstack]: "bg-purple-800",
+    [ProjectTag.Redis]: "bg-rose-700",
+    [ProjectTag.Postgres]: "bg-teal-700"
 };
+
+export interface ProjectImageMedia {
+    type: "image";
+    src: string;
+}
+
+export interface ProjectYoutubeMedia {
+    type: "youtube";
+    videoId: string;
+}
+
+export type ProjectMedia = ProjectImageMedia | ProjectYoutubeMedia;
+
+export function image(src: string): ProjectMedia {
+    return {type: "image", src};
+}
+
+export function youtube(videoId: string): ProjectMedia {
+    return {type: "youtube", videoId};
+}
+
+// YouTube serves a thumbnail for any video at this URL with no API key
+// needed, used for video slides before they're played and for card covers.
+export function getMediaThumbnailSrc(media: ProjectMedia): string {
+    return media.type === "image" ? media.src : `https://img.youtube.com/vi/${media.videoId}/hqdefault.jpg`;
+}
 
 export interface Project {
     id: string;
     title: string;
     description: string;
-    images?: string[];
+    media?: ProjectMedia[];
     tags: ProjectTag[];
     githubLink?: string;
+    liveLink?: string;
 }
 
 export const projects: Project[] = [
     {
+        id: "project-nova-game",
+        title: "Nova Game",
+        description: "A web-based time-trial First Person Shooter built around speedrunning user created levels, hitting targets, and climbing leaderboards. It comes with an in-browser level editor that includes a free-fly pawn, transform gizmos, palette controls, and local/cloud save-state sharing so players can build and share their levels. Under the hood, it runs on a TypeScript, Three.js and React frontend hosted on Cloudflare Pages, with a Node backend on Railway backed by PostgreSQL and Redis. User levels and thumbnails are stored in Cloudflare R2, and accounts start out anonymous with the option to claim them later via GitHub login.",
+        tags: [ProjectTag.React, ProjectTag.TypeScript, ProjectTag.Cloudflare, ProjectTag.Frontend, ProjectTag.Redis, ProjectTag.Postgres],
+        githubLink: "https://github.com/The-Matto/nova-game",
+        liveLink: "https://nova.mattheritage.dev/",
+        media: [image("/projects/Nova-game/nova-game_1.jpg"), image("/projects/Nova-game/nova-game_2.jpg"), image("/projects/Nova-game/nova-game_3.jpg")]
+
+
+    },
+    {
+        id: "project-clarity-engine",
+        title: "C++ OpenGL Game engine",
+        description: "Architected and developed a modular 3D engine using OpenGL, C++ and GLFW, featuring decoupled subsystems, JSON-based level serialization, Phong lighting, and model loading via Assimp. Built a custom reflection system for real-time variable updates and an asset manager for automatic asset discovery and management. Used Premake to maintain a consistent, cross-platform, multi-IDE build environment. \n \n Currently extending the engine with a module-based DLL architecture to support hot-reloadable systems, along with shader hot reloading.",
+        tags: [ProjectTag.Cpp, ProjectTag.GameDev],
+        media: [image("/projects/Clarity/ClarityEngine_1.jpg") /*, youtube("YOUTUBE VIDEO ID!")*/]
+    },
+    {
+        id: "project-dungeon-generator",
+        title: "Procedural Dungeon Builder",
+        description: "Developed a procedural dungeon generator that algorithmically stitches artist-designed levels into a walkable path. The system also dynamically populates each room with variable enemy spawns and randomized loot distributions.",
+        tags: [ProjectTag.UnrealEngine, ProjectTag.GameDev],
+        media: [image("/projects/Dungeon-builder/dungeon_1.jpg")]
+    }, 
+    {
+        id: "project-inventory-system",
+        title: "Grid Based Inventory System",
+        description: "Building a grid-based inventory system inspired by Resident Evil 4 for an ongoing hobby project. Items are managed as UObject instances contained within a custom UActorComponent (UGridContainer), with state serialization handled via FInstancedStruct.",
+        tags: [ProjectTag.UnrealEngine],
+        media: [image("/projects/grid-inventory/inventory_1.jpg")]
+    },
+     {
         id: "project-portfolio",
         title: "This Portfolio",
-        description: "The site you're looking at right now. Built with React and TypeScript, deployed on Cloudflare, with a tag filter instead of a plain project list.",
+        description: "This portfolio website was built with React, TypeScript and Tailwind, deployed on Cloudflare Pages.",
         tags: [ProjectTag.React, ProjectTag.TypeScript, ProjectTag.Cloudflare, ProjectTag.Frontend],
-        githubLink: "https://github.com/",
+        githubLink: "https://github.com/The-Matto/vite-react-template",
     },
     {
-        id: "project-unreal-gameplay",
-        title: "Gameplay Systems Sandbox",
-        description: "A small Unreal Engine project used to prototype gameplay ability systems and enemy AI behaviour trees in C++.",
-        tags: [ProjectTag.UnrealEngine, ProjectTag.Cpp, ProjectTag.GameDev],
-    },
-    {
-        id: "project-unity-tools",
-        title: "Unity Editor Tooling",
-        description: "Custom editor tooling built for a Unity project to speed up level dressing and asset validation for the rest of the team.",
-        tags: [ProjectTag.Unity, ProjectTag.GameDev],
-    },
-    {
-        id: "project-api-service",
-        title: "Edge API Service",
-        description: "A backend service built on Cloudflare Workers handling auth, rate limiting, and data access for a small side project.",
-        tags: [ProjectTag.Node, ProjectTag.Backend, ProjectTag.Cloudflare, ProjectTag.TypeScript],
-        githubLink: "https://github.com/",
-    },
-    {
-        id: "project-fullstack-app",
-        title: "Full-Stack Web App",
-        description: "A full web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a dull web app I built end to end, with a React frontend, a typed API, and a database-backed service layer.",
-        tags: [ProjectTag.React, ProjectTag.TypeScript, ProjectTag.Fullstack, ProjectTag.Backend],
+        id: "project-basic-chrome-mouse-gestures",
+        title: "Basic Chrome Mouse Gestures",
+        description: "Chrome still lacks native mouse-gesture navigation, so I built a lightweight extension to fill the gap. Using an injected content script, it maps right-click hold combinations and cardinal mouse movements to core browser actions (e.g., holding right-click and moving West switches to the previous tab, while Far North restores a closed tab). Built with vanilla JavaScript and the Chrome Extensions API.",
+        tags: [ProjectTag.BrowserExtension],
+        githubLink: "https://github.com/The-Matto/chrome-basic-mouse-gestures",
+        media: [image("/projects/chrome-mouse-gestures/mouse-gestures_1.jpg")]
     },
 ];
 

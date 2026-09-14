@@ -1,4 +1,4 @@
-import {getProceduralCover, Project} from "../data/projects-data.tsx";
+import {getMediaThumbnailSrc, getProceduralCover, Project} from "../data/projects-data.tsx";
 
 export default function ProjectComponent({project, onClick, isActive}: {
     project: Project,
@@ -6,7 +6,7 @@ export default function ProjectComponent({project, onClick, isActive}: {
     isActive: boolean
 }) {
 
-    const hasImage = project.images !== undefined && project.images.length > 0;
+    const coverMedia = project.media?.[0];
 
     return (
         <div onClick={() => {
@@ -16,10 +16,10 @@ export default function ProjectComponent({project, onClick, isActive}: {
               rounded-lg shadow-md overflow-hidden transition-transform duration-500 hover:scale-105
               hover:cursor-pointer hover:border-orange-500 border ${isActive ? "border-white" : "border-black"}`}>
 
-            {hasImage ? (
+            {coverMedia ? (
                 <img
                     className="absolute inset-0 w-full h-full object-cover saturate-50"
-                    src={project.images![0]} alt={project.title}/>
+                    src={getMediaThumbnailSrc(coverMedia)} alt={project.title}/>
             ) : (
                 <div
                     className={`absolute inset-0 bg-gradient-to-br saturate-50 ${getProceduralCover(project.id)} flex items-end justify-end`}>

@@ -1,5 +1,5 @@
 import {Dialog, DialogPanel, DialogTitle} from "@headlessui/react";
-import {XMarkIcon} from "@heroicons/react/24/outline";
+import {ArrowTopRightOnSquareIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import {Project, projectTagStyle} from "../data/projects-data.tsx";
 import BubbleText from "./text-components/bubble-text-component.tsx";
 import ProjectImageCarousel from "./project-image-carousel-component.tsx";
@@ -37,9 +37,20 @@ export default function ProjectModal({project, open, onClose}: {
 
                     <p className="mt-4 leading-relaxed">{project.description}</p>
 
-                    {project.githubLink && (
-                        <a className="inline-block mt-4 font-mono text-orange-400 hover:text-orange-300"
-                           href={project.githubLink} target="_blank" rel="noreferrer">GitHub →</a>
+                    {(project.liveLink || project.githubLink) && (
+                        <div className="mt-4 flex flex-wrap items-center gap-3">
+                            {project.liveLink && (
+                                <a href={project.liveLink} target="_blank" rel="noreferrer"
+                                   className="inline-flex items-center gap-1.5 rounded-lg bg-orange-600 hover:bg-orange-500 px-4 py-2 font-mono text-sm text-white transition-colors duration-150">
+                                    <ArrowTopRightOnSquareIcon className="size-4"/>
+                                    Live
+                                </a>
+                            )}
+                            {project.githubLink && (
+                                <a className="font-mono text-orange-400 hover:text-orange-300"
+                                   href={project.githubLink} target="_blank" rel="noreferrer">GitHub →</a>
+                            )}
+                        </div>
                     )}
                 </DialogPanel>
             </div>
