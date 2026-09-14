@@ -5,13 +5,11 @@ import {
     DialogPanel,
 } from '@headlessui/react'
 import {
-    ArrowDownTrayIcon,
     Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import NavLink from "./nav-clickable-link.tsx";
 import SocialLinksNav from "./social-links-nav-component.tsx";
-import {CV_DOWNLOAD_FILENAME, CV_PATH} from "../data/cv-data.ts";
 
 export default function NavBar() {
 
@@ -59,13 +57,7 @@ export default function NavBar() {
                     </button>
                 </div>
 
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href={CV_PATH} download={CV_DOWNLOAD_FILENAME}
-                       className="inline-flex items-center gap-1.5 rounded-md border border-orange-500/60 px-3 py-1.5 text-sm font-mono text-orange-400 hover:bg-orange-500/10 transition-colors duration-150">
-                        <ArrowDownTrayIcon aria-hidden="true" className="size-4"/>
-                        CV
-                    </a>
-                </div>
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end"/>
 
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -99,13 +91,6 @@ export default function NavBar() {
                                 <NavLink path={"/#contact"} onClickFunc={closeMobileMenu} renderAsBlock={true}
                                          text={"Contact Me"}/>
 
-                            </div>
-                            <div className="py-6">
-                                <a href={CV_PATH} download={CV_DOWNLOAD_FILENAME}
-                                   className="inline-flex items-center gap-1.5 rounded-md border border-orange-500/60 px-3 py-1.5 text-sm font-mono text-orange-400 hover:bg-orange-500/10 transition-colors duration-150">
-                                    <ArrowDownTrayIcon aria-hidden="true" className="size-4"/>
-                                    Download CV
-                                </a>
                             </div>
                             <div className="py-6 flex flex-col gap-3">
                                 <span className="font-mono text-xs text-orange-400/80">{"// find me"}</span>
